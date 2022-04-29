@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from preprocessing.Sort_Contour_By_Area import SortContoursByArea
+from preprocessing_functions.Sort_Contour_By_Area import SortContoursByArea
 
 def XLargestBlobs(mask, top_X=None):
     '''
