@@ -1,12 +1,12 @@
 import numpy as np
 
 
-def Pad(img):
-    '''
+def pad(img):
+    """
     This function pads a given image with black pixels,
     along its shorter side, into a square and returns
     the square image.
-    '''
+    """
 
     nrows, ncols = img.shape
 

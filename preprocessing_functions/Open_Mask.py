@@ -1,11 +1,11 @@
 import cv2
 
 
-def OpenMask(mask, ksize=(23, 23), operation="open"):
-    '''
+def openmask(mask, ksize=(23, 23), operation="open"):
+    """
     This function edits a given mask (binary image) by performing
     closing then opening morphological operations.
-    '''
+    """
 
     kernel = cv2.getStructuringElement(shape=cv2.MORPH_RECT, ksize=ksize)
 

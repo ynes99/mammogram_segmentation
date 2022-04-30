@@ -3,27 +3,27 @@ import numpy as np
 
 class FCM:
     def __init__(self, image, image_bit, n_clusters, m, epsilon, max_iter):
-        '''Modified Fuzzy C-means clustering
-        <image>: 2D array, grey scale image.
-        <n_clusters>: int, number of clusters/segments to create.
-        <m>: float > 1, fuzziness parameter. A large <m> results in smaller
-             membership values and fuzzier clusters. Commonly set to 2.
-        <max_iter>: int, max number of iterations.
-        '''
+        """Fuzzy C-means clustering
+        <image>: 2D array, image en niveaux de gris.
+        <n_clusters>: int, nombre de clusters/segments à créer.
+        <m>: float > 1, parametre flou (fuzziness parameter). un grand <m> entraîne une plus petite
+        valeur d'appartenance et des clusters plus flous. Généralement défini à 2.
+        <max_iter>: int, nombre d'itérations maximales.
+        """
 
         # -------------------Check inputs-------------------
         if np.ndim(image) != 2:
-            raise Exception("<image> needs to be 2D (gray scale image).")
+            raise Exception("<image> doit étre 2D (gray scale image).")
         if n_clusters <= 0 or n_clusters != int(n_clusters):
-            raise Exception("<n_clusters> needs to be a positive integer.")
+            raise Exception("<n_clusters> doit étre positive.")
         if m < 1:
-            raise Exception("<m> needs to be > 1.")
+            raise Exception("<m> est supérieur à 1.")
         if epsilon <= 0:
-            raise Exception("<epsilon> needs to be > 0")
+            raise Exception("<epsilon> est strictement positive")
 
         self.image = image
         self.image_bit = image_bit
-        self.n_clusters = n_clusters  # number of clusters/segments to create
+        self.n_clusters = n_clusters  # nombre de clusters/segments à créer
         self.m = m  # fuzziness parameter
         self.epsilon = epsilon
         self.max_iter = max_iter
@@ -33,8 +33,10 @@ class FCM:
 
     # ---------------------------------------------
     def initial_u(self):
-        # each jth cluster (column) contains the cluster membership of the ith data point (ith row)
-        # the sum of the memberships for each data point is equal to one.
+        """Initialisation de la matrice d'appartenance ,chaque jéme colonne (segment/cluster) contient la valeur
+        d'appartenance de la iéme ligne (iéme datapoint) la somme des valeurs d'appartenance d'un segment est égale à 1
+        each jth cluster (column) contains the cluster membership of the ith data point (ith row)
+        the sum of the memberships for each segment (column) is equal to one."""
 
         u = np.zeros((self.numPixels, self.n_clusters))
         idx = np.arange(self.numPixels)
@@ -44,22 +46,22 @@ class FCM:
         return u
 
     def update_u(self):
-        '''Compute weights (cluster memberships)'''
-        c_mesh, idx_mesh = np.meshgrid(self.c, self.X)  # self.c centroids of the clusters
-        power = 2. / (self.m - 1)  # self.c defined in form_clusters()
+        """Compute weights/calculer les poids (cluster memberships/valeur d'appartenance)"""
+        c_mesh, idx_mesh = np.meshgrid(self.c, self.X)  # self.c centres des segments
+        power = 2. / (self.m - 1)  # self.c définie dans form_clusters()
         a = abs(idx_mesh - c_mesh) ** power
         b = np.sum((1. / abs(idx_mesh - c_mesh)) ** power, axis=1)
 
         return 1. / (a * b[:, None])
 
     def update_c(self):
-        '''Compute centroid of clusters'''  # vectorization in python to speed up the computing time
+        """Compute centroid of clusters/calculer les centre des clusters"""
         numerator = np.dot(self.X, self.u ** self.m)
         denominator = np.sum(self.u ** self.m, axis=0)
-        return numerator / denominator  # returns a matrix of shape (1,num_centroids)
+        return numerator / denominator
 
     def form_clusters(self):
-        '''Iterative training'''
+        """Iterative training"""
         d = 100
         self.u = self.initial_u()  # initializing the weights
         if self.max_iter != -1:
@@ -83,11 +85,11 @@ class FCM:
             i += 1
 
     def defuzzify(self):
-        return np.argmax(self.u, axis=1)  # Returns the indices of the maximum values along an axis.
-        # returns the max membership value of each data point
+        return np.argmax(self.u, axis=1)
+        # retourne la valeur d'appartenance maximale de chaque point
 
     def segmentimage(self):
-        '''Segment image based on max weights'''
+        """Segmenter l'image en se basant sur les poids"""
 
         result = self.defuzzify()
         self.result = result.reshape(self.shape).astype('int')

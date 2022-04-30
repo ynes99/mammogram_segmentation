@@ -1,10 +1,10 @@
 def HorizontalFlip(mask):
-    '''
+    """
     This function figures out how to flip (also entails whether
     or not to flip) a given mammogram and its mask. The correct
     orientation is the breast being on the left (i.e. facing
     right) and it being the right side up.
-    '''
+    """
 
     # Get number of rows and columns in the image.
     nrows, ncols = mask.shape

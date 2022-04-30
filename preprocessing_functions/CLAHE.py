@@ -1,10 +1,10 @@
 import cv2
 
 def clahe(img, clip=2.0, tile=(8, 8)):
-    '''
+    """
     This function applies the Contrast-Limited Adaptive
     Histogram Equalisation filter to a given image.
-    '''
+    """
 
     # Convert to uint8.
     # img = skimage.img_as_ubyte(img)

@@ -13,4 +13,10 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('Hello world')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# TODO IOU FUNCTION
+# TODO TEMPLATE FOR SITE HTML CSS BOOTSTRAP
+# TODO API WITH DJANGO
+# TODO CREATE MAIN OF FUNCTION
+# TODO CLEAN CODE IN MANAGING THE DATA
+# TODO CREATE README.md
+# TODO REQUIREMENTS.TXT

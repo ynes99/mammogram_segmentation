@@ -1,7 +1,7 @@
 def CropBorders(img):
-    '''
+    """
         Cette fonction recadre 1% de tout les côtés de l'image donnée
-    '''
+    """
     nrows, ncols = img.shape
 
     # Get the start and end rows and columns

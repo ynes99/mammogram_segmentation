@@ -1,12 +1,12 @@
 import cv2
 import numpy as np
-from preprocessing_functions.Sort_Contour_By_Area import SortContoursByArea
+from preprocessing_functions.Sort_Contour_By_Area import sort_contours_by_area
 
 def XLargestBlobs(mask, top_X=None):
-    '''
+    """
     This function finds contours in the given image and
     keeps only the top X largest ones.
-     '''
+    """
 
     # Trouver tout les contours de l'image binariser
     contours, hierarchy = cv2.findContours(image=mask,
@@ -23,8 +23,8 @@ def XLargestBlobs(mask, top_X=None):
             top_X = n_contours
 
         # trier les contours on se basant sur la zone du contour(area contour).
-        sorted_contours, bounding_boxes = SortContoursByArea(contours=contours,
-                                                             reverse=True)
+        sorted_contours, bounding_boxes = sort_contours_by_area(contours=contours,
+                                                                reverse=True)
 
         # Gon prend le contour le plus large
         X_largest_contours = sorted_contours[0:top_X]
