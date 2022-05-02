@@ -9,7 +9,7 @@ from numpy.random import randint, random
 
 # input fllename >> output 3d array
 from utilities.Path_Join import p_join
-from utilities.Preprocessing_for_cropped import preproc_and_crop
+from Traitement_image.Preprocessing_for_cropped import preproc_and_crop
 
 
 def read_img(filename: object, size: object) -> object:

@@ -1,13 +1,13 @@
 import cv2
-from preprocessing_functions.ApplyMask import ApplyMask
-from preprocessing_functions.CLAHE import clahe
-from preprocessing_functions.Crop_Borders import CropBorders
-from preprocessing_functions.Flipping import flip
-from preprocessing_functions.Global_Binarize import GlobalBinarise
-from preprocessing_functions.Largest_Blob import XLargestBlobs
-from preprocessing_functions.Normalise import minmaxnormalise
-from preprocessing_functions.Open_Mask import openmask
-from preprocessing_functions.Padding import pad
+from Preprocessing_functions.ApplyMask import ApplyMask
+from Preprocessing_functions.CLAHE import clahe
+from Preprocessing_functions.Crop_Borders import CropBorders
+from Preprocessing_functions.Flipping import flip
+from Preprocessing_functions.Global_Binarize import GlobalBinarise
+from Preprocessing_functions.Largest_Blob import XLargestBlobs
+from Preprocessing_functions.Normalise import minmaxnormalise
+from Preprocessing_functions.Open_Mask import openmask
+from Preprocessing_functions.Padding import pad
 
 
 def full_preprocessing(image, gt_mask):

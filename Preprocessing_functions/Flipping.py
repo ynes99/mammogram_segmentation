@@ -1,4 +1,4 @@
-from preprocessing_functions.Horizontal_flip import HorizontalFlip
+from Preprocessing_functions.Horizontal_flip import HorizontalFlip
 import numpy as np
 
 
