@@ -1,13 +1,13 @@
 import cv2
-from Preprocessing_functions.ApplyMask import ApplyMask
-from Preprocessing_functions.CLAHE import clahe
-from Preprocessing_functions.Crop_Borders import CropBorders
-from Preprocessing_functions.Flipping import flip
-from Preprocessing_functions.Global_Binarize import GlobalBinarise
-from Preprocessing_functions.Largest_Blob import XLargestBlobs
-from Preprocessing_functions.Normalise import minmaxnormalise
-from Preprocessing_functions.Open_Mask import openmask
-from Preprocessing_functions.Padding import pad
+from Traitement_image.Preprocessing_functions.ApplyMask import ApplyMask
+from Traitement_image.Preprocessing_functions.CLAHE import clahe
+from Traitement_image.Preprocessing_functions.Crop_Borders import CropBorders
+from Traitement_image.Preprocessing_functions.Flipping import flip
+from Traitement_image.Preprocessing_functions.Global_Binarize import GlobalBinarise
+from Traitement_image.Preprocessing_functions.Largest_Blob import XLargestBlobs
+from Traitement_image.Preprocessing_functions.Normalise import minmaxnormalise
+from Traitement_image.Preprocessing_functions.Open_Mask import openmask
+from Traitement_image.Preprocessing_functions.Padding import pad
 
 
 def full_preprocessing(image, gt_mask):
@@ -20,7 +20,8 @@ def full_preprocessing(image, gt_mask):
     gt_mask, flipped_image = flip(clean_image, mask_blob, gt_mask)
     denoise_image = cv2.medianBlur(flipped_image, 3)
     contrast_enhanced_image = clahe(img=denoise_image)
-    padded_image = pad(img=contrast_enhanced_image)
+    final_image = pad(img=contrast_enhanced_image)
     final_gt_mask = pad(img=gt_mask)
-    final_image = minmaxnormalise(padded_image)
+    # final_image = minmaxnormalise(padded_image)
     return final_image, final_gt_mask
+# TODO minmax in data

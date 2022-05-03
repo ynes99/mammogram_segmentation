@@ -1,6 +1,6 @@
 from Traitement_image.Crop_From_Center import crop_image_from_center
 import cv2
-from Preprocessing_functions.CLAHE import clahe
+from Traitement_image.Preprocessing_functions.CLAHE import clahe
 
 
 def preproc_and_crop(image, center, shape):
