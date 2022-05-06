@@ -24,4 +24,3 @@ def full_preprocessing(image, gt_mask):
     final_gt_mask = pad(img=gt_mask)
     # final_image = minmaxnormalise(padded_image)
     return final_image, final_gt_mask
-# TODO minmax in data

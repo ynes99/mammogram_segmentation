@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import ImageForm
-from .models import Image
 
 
 # Create your views here.
@@ -13,11 +12,19 @@ def image_view(request):
             return redirect('success')
     else:
         form = ImageForm()
-    return render(request, "treatment.html", {"form": form})
+    return render(request, "my_app/treatment.html", {"form": form})
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "my_app/index.html")
+
+
+def symptoms(request):
+    return render(request, "my_app/symptoms.html")
+
+
+def detection(request):
+    return render(request, "my_app/treatment.html")
 
 
 def success(request):

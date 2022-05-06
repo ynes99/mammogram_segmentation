@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Treatment | Breast Cancer</title>
+    <!-- seo starts here  -->
+    <meta name="description"
+          content="Your one stop for everything related to Breast Cancer, including, symptoms, treatment, faqs, etc."/>
+    <meta name="author" content="Ashutosh Dash">
+    <meta name="keywords"
+          content="breast cancer, breast, cancer, awareness, breast cancer awareness, breast cancer treatment, breast cancer symptoms, treatment, symptoms, breast cancer faqs, breast cancer faq, open source, open sourcing, contributing to open source"/>
+
+    <meta name="robots" content="index,follow"/>
+    <meta name="Googlebot" content="index,follow"/>
+    <meta name="AdsBot-Google" content="index,follow"/>
+    <meta property="og:site_name" content="https://breastcancerawareness.netlify.app/">
+    <meta property="og:title" content="Treatment | Breast Cancer Awareness">
+    <meta property="og:description"
+          content="Your one stop for everything related to Breast Cancer, including, symptoms, treatment, faqs, etc."/>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://breastcancerawareness.netlify.app/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="https://breastcancerawareness.netlify.app/">
+    <meta name="application-name" content="Treatment | Breast Cancer Awareness"/>
+    <meta name="apple-mobile-web-app-title" content="Treatment | Breast Cancer Awareness"/>
+    <meta name="summary" content="An open source project aimed at creating awareness against Breast Cancer">
+    <!-- seo ends here  -->
+
+    <!-- links including fonts and third part library -->
+    <link rel="stylesheet"
+          href="{% static 'my_app/assets/css/http_cdnjs.cloudflare.com_ajax_libs_twitter-bootstrap_4.5.2_css_bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'my_app/assets/css/fonts.css' %}">
+    <link rel="stylesheet"
+          href="{% static 'my_app/assets/css/http_cdnjs.cloudflare.com_ajax_libs_font-awesome_5.14.0_css_all.css' %}">
+    <link rel="stylesheet" href="{% static 'my_app/assets/css/treatment.css' %}">
+
+    <!-- favicon  -->
+    <link rel="icon" href="{% static 'my_app/assets/media/pink-ribbon-logo-png-transparent-719x899.ico' %}"
+          type="image/ico">
+
+    <!-- jquery CDN  -->
+    <script src="{% static 'my_app/assets/js/http_cdnjs.cloudflare.com_ajax_libs_jquery_3.5.1_jquery.slim.js' %}"></script>
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'my_app/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+    <!-- <script>
+      function preview_images() {
+        var total_file = document.getElementById("images").files.length;
+        for (var i = 0; i < total_file; i++) {
+          $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
+        }
+      }
+    </script> -->
+</head>
+<body onload="loader()">
+
+<!-- splash screen  -->
+<div id="loading"></div>
+
+<!-- navbar starts here  -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-pink">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'my_app:index' %}">Breast Cancer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'my_app:index' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'my_app:symptoms' %}">Symptoms</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="./{% url 'my_app:detection' %}">Detection<span
+                        class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- contents starts here  -->
+<section id="hero" class="d-flex align-items-center">
+    <div class="container">
+        <h1>Image segmentation<br> for breast cancer</h1>
+        <br>
+        <h6>The detection of tumours in the breast depends on segmentation techniques<br>Our aim in this project is to
+            showcase the performance of different segmentation algorithms<br>To help physician or anyone on that matter
+            to identify the tumor.</h6>
+
+        <div class="row p-5">
+            <div class="col-md-6">
+                <div class="container">
+                    <div class="row">
+                        <form method="post" enctype="multipart/form-data"></form>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button class="btn btn-primary" type="submit"
+                                style="background-color:#F7567C; border-color: aliceblue;">Upload Image
+                        </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<!-- ======= Gallery Section ======= -->
+<section id="gallery" class="gallery">
+    <div class="container">
+        <div class="section-title">
+            <h2 id="annoy_header">Results</h2>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row no-gutters" id="bigdiv">
+
+            <!-- <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div> -->
+        </div>
+
+    </div>
+</section>
+<!-- End Gallery Section -->
+
+<!-- Site footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">Copyright &copy; 2022 <a target="_blank" href="http://www.ensi-uma.tn">École
+                    Nationale des Sciences de l'Informatique</a></br>
+                    Ichrak HAMDI - Ines BOUHELAL </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer ends here -->
+
+<script>
+    var preloader = document.getElementById("loading");
+
+    function loader() {
+        preloader.style.display = 'none';
+    }
+</script>
+
+<script src="{% static 'my_app/assets/js/http_cdnjs.cloudflare.com_ajax_libs_popper.js_1.16.1_umd_popper.js' %}"></script>
+<script src="{% static 'my_app/assets/js/http_cdnjs.cloudflare.com_ajax_libs_twitter-bootstrap_4.5.2_js_bootstrap.js' %}"></script>
+
+<!-- Vendor JS Files -->
+<script src="{% static 'my_app/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'my_app/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'my_app/assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'my_app/assets/vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'my_app/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<script>
+
+</script>
+
+
+<!-- Template Main JS File -->
+<script src="{% static 'my_app/assets/js/treatment.js' %}"></script>
+
+</body>
+</html>
