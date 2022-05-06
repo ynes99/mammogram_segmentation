@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Breast Cancer</title>
+
+  <!-- seo starts here  -->
+  <meta name="description" content="Your one stop for everything related to Breast Cancer, including, symptoms, treatment, faqs, etc."/>
+  <meta name="author" content="Ashutosh Dash">
+  <meta name="keywords"
+          content="breast cancer, breast, cancer, awareness, breast cancer awareness, breast cancer treatment, breast cancer symptoms, treatment, symptoms, breast cancer faqs, breast cancer faq, open source, open sourcing, contributing to open source" />
+  <meta name="robots" content="index,follow" />
+  <meta name="Googlebot" content="index,follow" />
+  <meta name="AdsBot-Google" content="index,follow" />
+  <meta property="og:site_name" content="https://breastcancerawareness.netlify.app/">
+  <meta property="og:title" content="Breast Cancer Awareness | Your one stop for everything related to Breast Cancer">
+  <meta property="og:description" content="Your one stop for everything related to Breast Cancer, including, symptoms, treatment, faqs, etc."/>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://breastcancerawareness.netlify.app/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="https://breastcancerawareness.netlify.app/">
+  <meta name="application-name" content="Breast Cancer Awareness | Home" />
+  <meta name="apple-mobile-web-app-title" content="Breast Cancer Awareness | Home" />
+  <meta name="summary" content="An open source project aimed at creating awareness against Breast Cancer">
+<!-- seo ends here  -->
+<!--Google Adsense-->
+  <script data-ad-client="ca-pub-6040728715717881" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<!-- links including fonts and third part library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+  <!-- AOS  -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  
+  <!-- favicon -->
+  <link rel="icon" href="assets/media/pink-ribbon-logo-png-transparent-719x899.ico" type="image/ico">
+
+<!-- chart js CDN  -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+
+</head>
+
+<body onload="loader()">
+
+  <div id="loading"></div>
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-chevron-circle-up"></i></button>
+<!-- nav bar starts here  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-pink">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Breast Cancer</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="./index.html">Home<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="symptoms.html">Symptoms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="treatment.html">Treatments</a>
+              </li>
+            </ul>
+        </div>
+    </nav>
+
+     <!-- hero figure starts here  -->
+    <div class="container-fluid hero-figure">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="content">
+            <h1>The only person who can save you is <span style="color: #fff; background-color: #F7567C!important; border-radius: 25px; padding: 4px 7px;" id="hero-figure-text">you</span>.</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+     <!-- hero figure ends here  -->
+
+     <!-- stat content starts here  -->
+     <div class="container">
+      <div class="stat-content">
+        <div class="row align-items-center">
+          <div class="col-md-12 ">
+            <h2 class="heading text-center">Let's Talk Statistics</h2>
+          </div>
+        </div>
+        <br>
+        <div class="row align-items-center incidence-rates">
+         <div class="col-md-6 align-items-center" data-aos="fade-up">
+           <h3>Breast Cancer in Tunisia</h3>
+           <p>In 2018, breast cancer incidence and mortality rate among females in Tunisia were 50.17/100000 persons years and 14.04/100000 persons years respectively. Breast cancer DALY values were 25145 (438 /100000 persons years)==>14,5% incidence and 7,6% mortality. </p>
+         </div>
+         <div class="col-md-6 text-center" data-aos="fade-left">
+           <img src="assets/media/tunisia.png" alt="roll over map for country incident rates" height="300vh" width="100%">
+         </div>
+        </div>
+        <br>
+        <div class="row align-items-center age-risk">
+          <div class="col-md-6 text-center" data-aos="fade-right">
+            <div class="age-graph">
+              <canvas id="myChart" style="height: 300vh;"></canvas>
+            </div>
+          </div>
+          <div class="col-md-6 align-items-center" data-aos="fade-up">
+            <h3>Age increase the risk of breast cancer</h3>
+            <p>The older we are, the more likely abnormal changes will occur in our cells. When many of these changes occur, cancer can develop.</p>
+          </div>
+         </div>
+         <br>
+         <div class="row align-items-center cancer-frequency">
+          <div class="col-md-6 align-items-center" data-aos="fade-up">
+            <h3>Breast Cancer Frequency</h3>
+            <p>According to <a target="_blank" href="https://www.who.int/cancer/prevention/diagnosis-screening/breast-cancer/en/">WHO</a> Breast cancer is the most frequent cancer among women, impacting 2.1 million women each year, and also causes the greatest number of cancer-related deaths among women. In 2018, it is estimated that 627,000 women died from breast cancer – that is approximately 15% of all cancer deaths among women.</p>
+          </div>
+          <div class="col-md-6 text-center" data-aos="fade-left">
+            <img src="assets/media/okay.png" alt="roll over map for country incident rates" height="300vh" width="100%">
+          </div>
+         </div>
+         <br>
+         <div class="row align-items-center cancer-mortality" data-aos="fade-right">
+          <div class="col-md-6 align-items-center">
+            <img src="assets/media/20200925_210520.jpg" alt="cancer mortality in women" height="400vh" width="100%">
+          </div>
+          <div class="col-md-6 text-center" data-aos="fade-up">
+            <h3>Cancer Mortality rate in Women</h3>
+            <p>Breast Cancer has the 2nd highest mortality rate in women. </p>
+          </div>
+         </div>
+         
+      </div>
+     </div>
+     <br>
+     <!-- stat content ends here  -->
+
+     <!-- Site footer -->
+    <footer class="site-footer">
+      <!--
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h6>About</h6>
+            <p class="text-justify">This site is made for our 
+            
+            </p>
+          </div>
+          <div class="col-xs-6 col-md-3">
+          </div>
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home <i class="fas fa-home"></i></a></li>
+              <li><a href="./symptoms.html">Symptoms <i class="fas fa-stethoscope"></i></a></li>
+              <li><a href="./treatment.html">Treatment <i class="fas fa-hospital"></i></a></li>
+              <li><a href="./contact.html">Contact <i class="fas fa-phone-square"></i></a></li>
+              <li><a href="./faq.html">FAQs <i class="fas fa-comment-dots"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+    -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2022 <a target="_blank" href="http://www.ensi-uma.tn">École Nationale des Sciences de l'Informatique</a></br>
+              Ichrak HAMDI - Ines BOUHELAL </p>
+          </div>
+          
+        </div>
+      </div>
+    </footer>
+  <!-- footer ends here -->
+  
+  <!-- js tags  -->
+  <script>
+    var preloader = document.getElementById("loading");
+    function loader(){
+      preloader.style.display = 'none';
+    }
+  </script>
+  <script src="assets/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- aos data  -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+    });
+  </script>
+</body>
+</html>
