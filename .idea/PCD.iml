@@ -15,8 +15,9 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/image test algorithms" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/preprocessed samples" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/temp" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/my_site/static/preprocessed samples" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/Algorithms/U_NET_architecture_(CNN)/train" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.9 (venv)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -30,12 +31,20 @@
   <component name="PyDocumentationSettings">
     <option name="renderExternalDocumentation" value="true" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/my_site" />
+      </list>
+    </option>
+  </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
         <option value="$MODULE_DIR$/my_site/static" />
-        <option value="$MODULE_DIR$/my_site/templates" />
+        <option value="$MODULE_DIR$/my_site/image/static" />
+        <option value="$MODULE_DIR$/my_site/image/templates" />
       </list>
     </option>
   </component>

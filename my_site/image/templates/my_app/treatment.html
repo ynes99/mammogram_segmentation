@@ -47,13 +47,16 @@
 
     <!-- Vendor CSS Files -->
     <link href="{% static 'my_app/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-    <link href="{% static 'boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-    <link href="{% static 'fontawesome-free/css/all.min.css' %}" rel="stylesheet">
-    <link href="{% static 'glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-    <link href="{% static 'remixicon/remixicon.css' %}" rel="stylesheet">
-    <link href="{% static 'swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'my_app/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'my_app/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'my_app/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'my_app/assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'my_app/assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'my_app/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'my_app/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'my_app/assets/css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'my_app/assets/css/fonts.css' %}" rel="stylesheet">
+
 
     <!-- <script>
       function preview_images() {
@@ -70,7 +73,7 @@
 <div id="loading"></div>
 
 <!-- navbar starts here  -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-pink">
+<nav class="navbar navbar-expand-lg navbar-dark bg-pink navbar-static-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'my_app:index' %}">Breast Cancer</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -87,7 +90,7 @@
                 <a class="nav-link" href="{% url 'my_app:symptoms' %}">Symptoms</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="./{% url 'my_app:detection' %}">Detection<span
+                <a class="nav-link" href="{% url 'my_app:detection' %}">Detection<span
                         class="sr-only">(current)</span></a>
             </li>
         </ul>
@@ -96,37 +99,34 @@
 
 
 <!-- contents starts here  -->
-<section id="hero" class="d-flex align-items-center">
-    <div class="container">
-        <h1>Image segmentation<br> for breast cancer</h1>
-        <br>
-        <h6>The detection of tumours in the breast depends on segmentation techniques<br>Our aim in this project is to
-            showcase the performance of different segmentation algorithms<br>To help physician or anyone on that matter
-            to identify the tumor.</h6>
-
-        <div class="row p-5">
-            <div class="col-md-6">
+<main>
+    <section id="hero" class="d-flex align-items-center">
+        <div class="container-fluid">
+            <div class="row p-5">
                 <div class="container">
                     <div class="row">
-                        <form method="post" enctype="multipart/form-data"></form>
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button class="btn btn-primary" type="submit"
-                                style="background-color:#F7567C; border-color: aliceblue;">Upload Image
-                        </button>
-                        </form>
+                        <h1 style="padding-bottom: 20px">Image segmentation<br> for breast cancer</h1>
+                        <h6>The detection of tumors in the breast depends on segmentation techniques.
+                            Our aim in this project is to showcase the performance of different segmentation algorithms
+                            to help detect tumors and classify them. These masses can come in different shapes and
+                            different shapes entail different diagnostics; the tumor can be benign or malign.</h6>
                     </div>
+                    <div class="row">
+                        {% block content %}<!-- default content text (typically empty) -->{% endblock %}
+                    </div>
+                    <br><br><br><br><br><br>
                 </div>
             </div>
-        </div>
-    </div>
 
-</section>
+        </div>
+
+    </section>
+</main>
 <!-- ======= Gallery Section ======= -->
 <section id="gallery" class="gallery">
     <div class="container">
         <div class="section-title">
-            <h2 id="annoy_header">Results</h2>
+
         </div>
     </div>
 
@@ -150,7 +150,7 @@
 <footer class="site-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-sm-6 col-xs-12">
+            <div class="col-sm-12 col-md-6">
                 <p class="copyright-text">Copyright &copy; 2022 <a target="_blank" href="http://www.ensi-uma.tn">École
                     Nationale des Sciences de l'Informatique</a></br>
                     Ichrak HAMDI - Ines BOUHELAL </p>
@@ -168,23 +168,59 @@
     }
 </script>
 
-<script src="{% static 'my_app/assets/js/http_cdnjs.cloudflare.com_ajax_libs_popper.js_1.16.1_umd_popper.js' %}"></script>
-<script src="{% static 'my_app/assets/js/http_cdnjs.cloudflare.com_ajax_libs_twitter-bootstrap_4.5.2_js_bootstrap.js' %}"></script>
+<script type="javascript"
+        src="{% static 'my_app/assets/js/http_cdnjs.cloudflare.com_ajax_libs_popper.js_1.16.1_umd_popper.js' %}"></script>
+<script type="javascript"
+        src="{% static 'my_app/assets/js/http_cdnjs.cloudflare.com_ajax_libs_twitter-bootstrap_4.5.2_js_bootstrap.js' %}"></script>
 
 <!-- Vendor JS Files -->
-<script src="{% static 'my_app/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'my_app/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-<script src="{% static 'my_app/assets/vendor/php-email-form/validate.js' %}"></script>
-<script src="{% static 'my_app/assets/vendor/purecounter/purecounter.js' %}"></script>
-<script src="{% static 'my_app/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<script type="javascript" src="{% static 'my_app/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script type="javascript" src="{% static 'my_app/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script type="javascript" src="{% static 'my_app/assets/vendor/php-email-form/validate.js' %}"></script>
+<script type="javascript" src="{% static 'my_app/assets/vendor/purecounter/purecounter.js' %}"></script>
+<script type="javascript" src="{% static 'my_app/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
 <script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.image-upload-wrap').hide();
+
+                $('.file-upload-image').attr('src', e.target.result);
+                $('.file-upload-content').show();
+
+                $('.image-title').html(input.files[0].name);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+
+        } else {
+            removeUpload();
+        }
+    }
+
+    function removeUpload() {
+        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+        $('.file-upload-content').hide();
+        $('.image-upload-wrap').show();
+    }
+
+    $('.image-upload-wrap').bind('dragover', function () {
+        $('.image-upload-wrap').addClass('image-dropping');
+    });
+    $('.image-upload-wrap').bind('dragleave', function () {
+        $('.image-upload-wrap').removeClass('image-dropping');
+    });
 
 </script>
 
 
 <!-- Template Main JS File -->
 <script src="{% static 'my_app/assets/js/treatment.js' %}"></script>
+
 
 </body>
 </html>

@@ -1,8 +1,15 @@
-from django import forms
+from django.forms import *
 from .models import *
 
 
-class ImageForm(forms.ModelForm):
+class UploadImageForm(ModelForm):
     class Meta:
-        model = Image
-        fields = ['name', 'Main_Img']
+        model = UploadedImage
+        fields = ['image', 'title', 'auto_increment_id']
+
+
+class MyModelForm(ModelForm):
+    class Meta:
+        model = segment
+        fields = '__all__'
+        widgets = {'any_field': HiddenInput(), }

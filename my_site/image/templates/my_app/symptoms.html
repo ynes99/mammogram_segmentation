@@ -41,6 +41,11 @@
     <!-- favicon  -->
     <link rel="icon" href="{% static 'my_app/assets/media/pink-ribbon-logo-png-transparent-719x899.ico' %}"
           type="image/ico">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
 
 </head>
 <body onload="loader()">
@@ -61,7 +66,7 @@
                 <a class="nav-link" href="{% url 'my_app:index' %}">Home</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="./{% url 'my_app:symptoms' %}">Symptoms<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="{% url 'my_app:symptoms' %}">Symptoms<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'my_app:detection' %}">Detection</a>

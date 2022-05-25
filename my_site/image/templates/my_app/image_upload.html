@@ -1,0 +1,179 @@
+{% extends "my_app/treatment.html" %}
+{% load static %}
+
+
+
+{% block content %}
+    <link rel="stylesheet"
+          href="{% static 'my_app/assets/css/image_upload.css' %}">
+    <div class="row p-5" id="Myid">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row pad">
+                <div class="file-upload">
+                    <div class="image-upload-wrap">
+                        <input class="file-upload-input" type='file' onchange="readURL(this);" name="image"
+                               accept="image/*" required="" id="id_image"/>
+                        <div class="drag-text">
+                            <i class="fas fa-download"></i>
+                            <h4><strong>Choose a file</strong> or drag it here</h4>
+                            <button class="btn btn-light" style="color:lightgray">Choose file</button>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image"/>
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
+                                    class="image-title">Uploaded Image</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-6 mx-auto">
+                    <label for="id_title">Title:</label> <input placeholder="Title of image" type="text"
+                                                                name="title" maxlength="100" required=""
+                                                                id="id_title">
+                    <button
+                            class="submit-btn btn btn-primary" type="submit"
+                            style="background-color:#F7567C; border-color: aliceblue;">Submit
+                    </button><!-- onclick="toggleText('up');toggleText('Myid');toggleText('segment');"-->
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% if alert_data %}
+        <div class="row">
+            <div style="margin:0px 40px 0px 50px">
+                <div class="alert {% if alert_data.status %} alert-success {% else %} alert-danger {% endif %}"
+                     role="alert">
+                    {{ alert_data.message }}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <hr class="rounded">
+    {% if alert_data %}
+        <div> <!--style="display: none"-->
+            <div class="row" style="padding: 60px;">
+                <div id="up" class="col-md-4 col-xs-12" style="padding:20px"><!--style="display: none"-->
+                    <li>
+                        <img class="img-thumbnail" src="{{ images.image.url }}" alt="{{ images.title }}" width="256px"
+                             height="256px"/>
+                    </li>
+                    <li id="output" style="padding:10px">
+                        Original picture.
+                    </li>
+
+                </div>
+                <div class="col-md-4 col-xs-12" style="padding:20px">
+                    <li>
+                        <img class="img-thumbnail" src="{% static gt %}" width="256px" height="256px">
+                    </li>
+                    <li style="padding:10px">
+                        <div id="output">Ground Truth Mask</div>
+                    </li>
+                </div>
+                {% for res in results %}
+                    <div class="col-md-4 col-xs-12" style="padding:20px">
+                        <li>
+                            <img class="img-thumbnail" src="{% static res.image %}">
+                        </li>
+                        <div style="padding:10px">
+                            <li>
+                                <div id="output">IoU for region of interest : {{ res.IOU }}</div>
+                            </li>
+                            <li>
+                                <div id="output">Algorithm : {{ res.algorithm }}</div>
+                            </li>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="col-md-4 col-xs-12" style="padding:20px">
+                    <li>
+                        <img class="img-thumbnail" src="{% static gt_cropped %}">
+                    </li>
+                    <li>
+                        <div id="output" style="padding:10px">Ground Truth Mask Cropped</div>
+                    </li>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <style>
+        output {
+            padding: 10px
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        /* Rounded border */
+        hr.rounded {
+            alignment: center;
+            border-top: 2px solid #bbb;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('.image-upload-wrap').hide();
+
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+
+                    $('.image-title').html(input.files[0].name);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+
+            } else {
+                removeUpload();
+            }
+        }
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+        }
+
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+
+        function alert(text) {
+            console.log(text);
+        }
+
+        function toggleText(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        };
+
+
+    </script>
+{% endblock %}
+

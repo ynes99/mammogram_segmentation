@@ -5,11 +5,9 @@ from .views import *
 
 app_name = 'my_app'
 urlpatterns = [
-    # path('image_upload/', image_view, name='image_upload'),
-    path('success/', success, name='success'),
     path('', index, name='index'),
     path('symptoms/', symptoms, name='symptoms'),
-    path('detection/', image_view, name='detection'),
+    path('detection/', image_view, name='detection'),  # IMAGE VIEW RENAME .INDEX SECOND
 
 ]
 
